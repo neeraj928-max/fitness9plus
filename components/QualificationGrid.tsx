@@ -1,43 +1,47 @@
-﻿export default function QualificationGrid() {
+export default function QualificationGrid() {
   return (
-    <section className="qualification grain" id="standards">
+    <section className="qualify grain">
       <div className="wrap">
-        <div className="section-head rv">
-          <div className="eyebrow center">High Standards</div>
-          <h2>WHO WE COACH <em>VS</em> WHO WE DON&apos;T</h2>
-          <p className="sub" style={{ margin: "0 auto" }}>
-            We work exclusively with committed individuals ready to take action. Quality and personal attention are our highest priorities.
-          </p>
-        </div>
-
-        <div className="qual-grid">
-          {/* Who This Is For */}
-          <div className="qual-card for-card rv">
-            <div className="qual-card-head">
-              <span className="qual-icon">✓</span>
-              <h3>THIS IS FOR YOU IF:</h3>
+        <div className="qualify-grid">
+          <div className="qualify-col for rv">
+            <div className="qualify-head">
+              <span className="icon">✓</span>
+              <h3>WHO FITNESS PLUSE 9 IS FOR</h3>
             </div>
-            <ul className="qual-list">
-              <li>You are willing to track your food and follow data-driven targets.</li>
-              <li>You can commit to 3-5 focused resistance training sessions per week.</li>
-              <li>You want a proven scientific system without starvation or bro-science.</li>
-              <li>You are coachable, communicate honestly, and submit weekly check-ins.</li>
-              <li>You value your health, physique, and long-term joint longevity.</li>
+            <ul className="qualify-list">
+              <li>
+                <span className="icon">✓</span>
+                <span><b>Committed Individuals:</b> Men and women ready to follow a proven, science-based plan without cutting corners.</span>
+              </li>
+              <li>
+                <span className="icon">✓</span>
+                <span><b>Busy Professionals:</b> People who want maximum muscle-building results without living inside the gym 7 days a week.</span>
+              </li>
+              <li>
+                <span className="icon">✓</span>
+                <span><b>Action Takers:</b> Those who value direct feedback, transparent accountability, and progressive overload.</span>
+              </li>
             </ul>
           </div>
 
-          {/* Who This Is Not For */}
-          <div className="qual-card not-for-card rv rv-delay-1">
-            <div className="qual-card-head">
-              <span className="qual-icon">✕</span>
-              <h3>THIS IS NOT FOR YOU IF:</h3>
+          <div className="qualify-col not-for rv rv-delay-1">
+            <div className="qualify-head">
+              <span className="icon">✕</span>
+              <h3>WHO THIS IS NOT FOR</h3>
             </div>
-            <ul className="qual-list">
-              <li>You are looking for overnight magic pills, detox teas, or fad crash diets.</li>
-              <li>You cannot spare 3-4 hours per week to train with intensity.</li>
-              <li>You are not willing to submit weekly check-in measurements and photos.</li>
-              <li>You make endless excuses and do not take personal accountability.</li>
-              <li>You are unwilling to step outside of your comfort zone.</li>
+            <ul className="qualify-list">
+              <li>
+                <span className="icon">✕</span>
+                <span><b>Quick-Fix Seekers:</b> Anyone expecting overnight magic pills without putting in the lifting sessions and nutritional consistency.</span>
+              </li>
+              <li>
+                <span className="icon">✕</span>
+                <span><b>Excuse Makers:</b> Those not willing to log their weekly check-in data, food intake, or lifting weights.</span>
+              </li>
+              <li>
+                <span className="icon">✕</span>
+                <span><b>Closed-Minded:</b> Individuals unwilling to accept coaching critiques on exercise technique and habit structures.</span>
+              </li>
             </ul>
           </div>
         </div>

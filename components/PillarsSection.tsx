@@ -1,5 +1,3 @@
-﻿import Image from "next/image";
-
 export default function PillarsSection() {
   return (
     <section className="system grain" id="system">
@@ -64,7 +62,7 @@ export default function PillarsSection() {
             </p>
             <ul className="pillar-features">
               <li>Direct WhatsApp Line (No Junior Assistants)</li>
-              <li>Daily Mindset & Habit Formation</li>
+              <li>Daily Mindset & Habit Habit Formation</li>
               <li>High-Performance Lifestyle Coaching</li>
             </ul>
           </div>
@@ -72,12 +70,10 @@ export default function PillarsSection() {
 
         {/* Facility & Training Atmosphere Strip */}
         <div className="facility-strip rv" style={{ marginTop: "60px" }}>
-          <Image
-            src="/images/gym-facility.jpg"
+          <img
+            src="assets/images/gym-facility.jpg"
             alt="Fitness Pluse 9 Dark Luxury Gym Setup"
-            width={1200}
-            height={480}
-            style={{ width: "100%", height: "100%", objectFit: "cover" }}
+            loading="lazy"
           />
           <div className="facility-overlay">
             <div className="facility-text">

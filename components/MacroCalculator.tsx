@@ -1,4 +1,4 @@
-﻿"use client";
+"use client";
 
 import { useState, useMemo } from "react";
 
@@ -11,11 +11,10 @@ export default function MacroCalculator() {
   const [goal, setGoal] = useState<"shred" | "recomp" | "bulk">("recomp");
 
   const results = useMemo(() => {
-    const validWeight = Math.max(30, weight || 70);
-    const validHeight = Math.max(100, height || 170);
-    const validAge = Math.max(15, age || 25);
+    const validWeight = Math.max(30, weight || 78);
+    const validHeight = Math.max(100, height || 178);
+    const validAge = Math.max(15, age || 26);
 
-    // Mifflin-St Jeor Formula
     let bmr = 10 * validWeight + 6.25 * validHeight - 5 * validAge;
     bmr += gender === "male" ? 5 : -161;
 
@@ -24,26 +23,21 @@ export default function MacroCalculator() {
     let takeawayText = "";
 
     if (goal === "shred") {
-      targetCalories = tdee * 0.8; // 20% deficit
-      takeawayText = "Aggressive fat reduction deficit with elevated protein to preserve lean muscle tissue.";
+      targetCalories = tdee * 0.8;
+      takeawayText = "Aggressive fat reduction deficit zone engineered to incinerate stubborn body fat while preserving lean muscle.";
     } else if (goal === "bulk") {
-      targetCalories = tdee * 1.12; // 12% surplus
-      takeawayText = "Lean hypertrophy surplus optimized for maximum muscle protein synthesis with minimal fat gain.";
+      targetCalories = tdee * 1.12;
+      takeawayText = "Lean hypertrophy surplus zone engineered to maximize muscle protein synthesis with minimal fat gain.";
     } else {
-      // Recomp
-      targetCalories = tdee * 0.93; // 7% slight deficit
-      takeawayText = "Body recomposition zone engineered to burn adipose fat while building lean dense muscle.";
+      targetCalories = tdee * 0.90;
+      takeawayText = "Body recomposition zone engineered to burn adipose fat while building lean dense muscle tissue.";
     }
 
-    // Protein: 2.2g per kg bodyweight (4 kcal/g)
     const proteinGrams = Math.round(validWeight * 2.2);
-    const proteinCalories = proteinGrams * 4;
-
-    // Fats: 0.85g per kg (9 kcal/g)
     const fatGrams = Math.round(validWeight * 0.85);
-    const fatCalories = fatGrams * 9;
 
-    // Remaining calories for Carbs (4 kcal/g)
+    const proteinCalories = proteinGrams * 4;
+    const fatCalories = fatGrams * 9;
     const remainingCalories = Math.max(0, targetCalories - proteinCalories - fatCalories);
     const carbGrams = Math.round(remainingCalories / 4);
 
@@ -93,7 +87,7 @@ export default function MacroCalculator() {
                   id="calc-age"
                   value={age}
                   min={16}
-                  max={80}
+                  max={75}
                   onChange={(e) => setAge(Number(e.target.value))}
                 />
               </div>
@@ -105,7 +99,7 @@ export default function MacroCalculator() {
                   id="calc-weight"
                   value={weight}
                   min={40}
-                  max={200}
+                  max={180}
                   onChange={(e) => setWeight(Number(e.target.value))}
                 />
               </div>
@@ -116,7 +110,7 @@ export default function MacroCalculator() {
                   type="number"
                   id="calc-height"
                   value={height}
-                  min={120}
+                  min={130}
                   max={230}
                   onChange={(e) => setHeight(Number(e.target.value))}
                 />
@@ -134,14 +128,13 @@ export default function MacroCalculator() {
                 <option value={1.375}>Light Activity (1-3 Gym Sessions/week)</option>
                 <option value={1.55}>Moderate Activity (3-5 Lifting Sessions/week)</option>
                 <option value={1.725}>Heavy Training (5-6 Hard Lifting Sessions/week)</option>
-                <option value={1.9}>Athletic Elite (Double Sessions / Heavy Labor)</option>
               </select>
             </div>
 
-            <div className="input-group" style={{ marginTop: "16px" }}>
+            <div className="input-group" style={{ marginTop: "18px" }}>
               <label>Primary Transformation Objective</label>
-              <div className="goal-options">
-                <label className={`goal-btn ${goal === "shred" ? "active" : ""}`}>
+              <div className="goal-selector">
+                <label className="goal-option">
                   <input
                     type="radio"
                     name="calc-goal"
@@ -149,9 +142,12 @@ export default function MacroCalculator() {
                     checked={goal === "shred"}
                     onChange={() => setGoal("shred")}
                   />
-                  <span>🔥 Fat Shred</span>
+                  <div className="goal-card-btn">
+                    <span className="goal-title">Fat Shred</span>
+                    <span className="goal-sub">Max Deficit & Cut</span>
+                  </div>
                 </label>
-                <label className={`goal-btn ${goal === "recomp" ? "active" : ""}`}>
+                <label className="goal-option">
                   <input
                     type="radio"
                     name="calc-goal"
@@ -159,9 +155,12 @@ export default function MacroCalculator() {
                     checked={goal === "recomp"}
                     onChange={() => setGoal("recomp")}
                   />
-                  <span>⚡ Body Recomp</span>
+                  <div className="goal-card-btn">
+                    <span className="goal-title">Lean Recomp</span>
+                    <span className="goal-sub">Burn Fat & Build</span>
+                  </div>
                 </label>
-                <label className={`goal-btn ${goal === "bulk" ? "active" : ""}`}>
+                <label className="goal-option">
                   <input
                     type="radio"
                     name="calc-goal"
@@ -169,49 +168,48 @@ export default function MacroCalculator() {
                     checked={goal === "bulk"}
                     onChange={() => setGoal("bulk")}
                   />
-                  <span>💪 Hypertrophy Bulk</span>
+                  <div className="goal-card-btn">
+                    <span className="goal-title">Hypertrophy</span>
+                    <span className="goal-sub">Lean Mass Surplus</span>
+                  </div>
                 </label>
               </div>
             </div>
           </div>
 
-          {/* Results Output Side */}
-          <div className="calc-result-side">
-            <div className="result-header">
-              <span className="badge-gold">ESTIMATED F9 BLUEPRINT</span>
-              <span className="result-model">Mifflin-St Jeor Standard</span>
-            </div>
-
-            <div className="calorie-display">
-              <div className="cal-num">{results.calories.toLocaleString()}</div>
-              <div className="cal-label">DAILY CALORIE TARGET (KCAL)</div>
-            </div>
-
-            <div className="macros-breakdown">
-              <div className="macro-chip protein">
-                <div className="macro-title">PROTEIN</div>
-                <div className="macro-gram">{results.protein}g</div>
-                <div className="macro-pct">High Muscle Sparing</div>
+          {/* Calculated Output Side */}
+          <div className="calc-results-side">
+            <div>
+              <div className="results-header">
+                <span className="res-eyebrow">ESTIMATED DAILY CALORIES</span>
+                <div className="res-main-val" id="res-calories">
+                  {results.calories.toLocaleString()} <span>KCAL / DAY</span>
+                </div>
               </div>
-              <div className="macro-chip carbs">
-                <div className="macro-title">CARBS</div>
-                <div className="macro-gram">{results.carbs}g</div>
-                <div className="macro-pct">Glycogen & Performance</div>
+
+              <div className="macro-split-grid">
+                <div className="macro-card protein">
+                  <div className="macro-label">Target Protein</div>
+                  <div className="macro-val" id="res-protein">{results.protein}g</div>
+                </div>
+                <div className="macro-card carbs">
+                  <div className="macro-label">Target Carbs</div>
+                  <div className="macro-val" id="res-carbs">{results.carbs}g</div>
+                </div>
+                <div className="macro-card fats">
+                  <div className="macro-label">Target Fats</div>
+                  <div className="macro-val" id="res-fats">{results.fats}g</div>
+                </div>
               </div>
-              <div className="macro-chip fats">
-                <div className="macro-title">FATS</div>
-                <div className="macro-gram">{results.fats}g</div>
-                <div className="macro-pct">Hormonal Health</div>
+
+              <div className="calc-takeaway" id="res-takeaway">
+                <p><b>F9 Protocol Target:</b> {results.takeaway}</p>
               </div>
             </div>
 
-            <div className="calc-takeaway">
-              <p><b>F9 Protocol Target:</b> {results.takeaway}</p>
-            </div>
-
-            <div className="calc-actions">
-              <a href="#enquire" className="btn full">
-                <span>Apply With These Targets</span>
+            <div style={{ marginTop: "20px" }}>
+              <a href="#enquire" className="btn" style={{ width: "100%" }}>
+                <span>Get Custom Meal Plan With Coach</span>
                 <span className="arrow">→</span>
               </a>
             </div>

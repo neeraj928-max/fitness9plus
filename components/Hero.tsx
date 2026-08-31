@@ -1,8 +1,18 @@
-﻿import Image from "next/image";
+"use client";
+
+import { useEffect, useState } from "react";
 
 export default function Hero() {
+  const [play, setPlay] = useState(false);
+
+  useEffect(() => {
+    // Add play class after mount to trigger animations
+    const timer = setTimeout(() => setPlay(true), 100);
+    return () => clearTimeout(timer);
+  }, []);
+
   return (
-    <section className="hero grain" id="hero">
+    <section className={`hero grain ${play ? "play" : ""}`} id="hero">
       {/* Left Vertical Spine */}
       <div className="hero-spine">
         <span>FITNESS PLUSE 9</span> • DISCIPLINE OVER MOTIVATION
@@ -63,17 +73,13 @@ export default function Hero() {
             </div>
           </div>
 
-          {/* Right Image Column */}
+          {/* Right Image Column (Directly Beside Text) */}
           <div className="hero-image-col">
             <div className="hero-figure-card">
-              <Image
-                src="/images/coach-physique.jpg"
+              <img
+                src="assets/images/coach-physique.jpg"
                 alt="Fitness Pluse 9 - Aesthetic Physique"
                 id="f9-hero-img"
-                width={700}
-                height={850}
-                priority
-                style={{ width: "100%", height: "auto", objectFit: "contain" }}
               />
             </div>
           </div>

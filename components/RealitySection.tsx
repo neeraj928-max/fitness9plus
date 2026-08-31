@@ -1,4 +1,4 @@
-﻿export default function RealitySection() {
+export default function RealitySection() {
   return (
     <section className="problem grain" id="problem">
       <div className="wrap">
@@ -22,38 +22,37 @@
             </div>
           </div>
 
-          <div className="problem-cards">
-            <div className="p-card rv rv-delay-1">
-              <div className="p-card-header">
-                <span className="p-num">01</span>
-                <span className="p-tag">Common Mistake</span>
+          <div className="pain-list rv rv-delay-1">
+            <div className="pain-card">
+              <span className="x-icon">✕</span>
+              <div>
+                <b>Cookie-Cutter Generic Workouts</b>
+                <p>Following generic fitness influencer routines without progressive overload schemes or biomechanical adjustments for your limb lengths and joint structure.</p>
               </div>
-              <h4>CRASH DIETING & METABOLIC DAMAGE</h4>
-              <p>
-                Slashing calories down to single digits forces hormonal down-regulation, muscle wasting, rebound weight gain, and intense brain fog.
-              </p>
             </div>
 
-            <div className="p-card rv rv-delay-2">
-              <div className="p-card-header">
-                <span className="p-num">02</span>
-                <span className="p-tag">Common Mistake</span>
+            <div className="pain-card">
+              <span className="x-icon">✕</span>
+              <div>
+                <b>Unsustainable Crash Diets</b>
+                <p>Cutting out entire food groups and slashing calories to starvation levels, causing metabolic slowdown, intense cravings, muscle loss, and rapid fat rebound.</p>
               </div>
-              <h4>COOKIE-CUTTER BODYBUILDING SPLITS</h4>
-              <p>
-                Copying high-volume pro influencer routines with zero consideration for your joint architecture, recovery bandwidth, or active lifestyle.
-              </p>
             </div>
 
-            <div className="p-card rv rv-delay-3">
-              <div className="p-card-header">
-                <span className="p-num">03</span>
-                <span className="p-tag">Common Mistake</span>
+            <div className="pain-card">
+              <span className="x-icon">✕</span>
+              <div>
+                <b>Zero Accountability & Coaching Feedback</b>
+                <p>No one reviewing your lifting execution, no weekly biofeedback audits, and zero guidance when plateaus hit. You end up spinning your wheels for months.</p>
               </div>
-              <h4>LACK OF DATA-DRIVEN FEEDBACK</h4>
-              <p>
-                Pushing through plateaus without tracking scale weight moving averages, lifting technique videos, or biofeedback markers.
-              </p>
+            </div>
+
+            <div className="pain-card">
+              <span className="x-icon">✕</span>
+              <div>
+                <b>Information Overload & Paralysis</b>
+                <p>Jumping from one trendy routine to another every three weeks without ever committing to a proven periodized hypertrophy progression.</p>
+              </div>
             </div>
           </div>
         </div>

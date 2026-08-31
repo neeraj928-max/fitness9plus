@@ -1,5 +1,6 @@
-﻿"use client";
+"use client";
 
+import { useEffect } from "react";
 import Navbar from "@/components/Navbar";
 import Hero from "@/components/Hero";
 import MarqueeTicker from "@/components/MarqueeTicker";
@@ -12,9 +13,26 @@ import QualificationGrid from "@/components/QualificationGrid";
 import FaqAccordion from "@/components/FaqAccordion";
 import ApplicationSection from "@/components/ApplicationSection";
 import Footer from "@/components/Footer";
-import BackToTop from "@/components/BackToTop";
 
 export default function Home() {
+  useEffect(() => {
+    const rvElements = document.querySelectorAll(".rv");
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add("in");
+          }
+        });
+      },
+      { threshold: 0.1 }
+    );
+
+    rvElements.forEach((el) => observer.observe(el));
+
+    return () => observer.disconnect();
+  }, []);
+
   return (
     <main className="min-h-screen">
       <Navbar />
@@ -29,7 +47,6 @@ export default function Home() {
       <FaqAccordion />
       <ApplicationSection />
       <Footer />
-      <BackToTop />
     </main>
   );
 }

@@ -1,80 +1,78 @@
-﻿"use client";
+"use client";
 
 import { useState, useEffect } from "react";
-import Image from "next/image";
 
 export default function Navbar() {
-  const [scrolled, setScrolled] = useState(false);
-  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const [solid, setSolid] = useState(false);
+  const [mobileOpen, setMobileOpen] = useState(false);
 
   useEffect(() => {
     const handleScroll = () => {
-      setScrolled(window.scrollY > 40);
+      setSolid(window.scrollY > 50);
     };
     window.addEventListener("scroll", handleScroll, { passive: true });
+    handleScroll();
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
-  const closeMobileMenu = () => setMobileMenuOpen(false);
+  const closeMobile = () => setMobileOpen(false);
 
   return (
     <>
-      <header className={`header ${scrolled ? "scrolled" : ""}`} id="main-header">
-        <div className="header-inner">
-          {/* Brand Logo & Wordmark */}
+      <header id="hd" className={solid ? "solid" : ""}>
+        <div className="nav">
           <a href="#hero" className="brand" aria-label="Fitness Pluse 9 Home">
-            <div className="brand-logo-frame">
-              <Image
-                src="/images/f9-logo.png"
-                alt="Fitness 9 Pluse F9 Logo"
-                className="brand-logo-img"
-                width={40}
-                height={40}
-                priority
-              />
-            </div>
-            <div className="brand-wordmark-container">
-              <span className="brand-wordmark-text">FITNESS 9 PLUSE</span>
-            </div>
+            <img
+              src="assets/images/f9-brand-logo.jpg"
+              alt="Fitness Pluse 9 Logo"
+              className="brand-logo-img"
+            />
+            <img
+              src="assets/images/f9-wordmark.png"
+              alt="Fitness 9 Pluse"
+              className="brand-wordmark-img"
+            />
           </a>
 
-          {/* Desktop Navigation */}
-          <nav className="nav-desktop" aria-label="Main Navigation">
-            <a href="#problem" className="nav-link">Reality</a>
-            <a href="#story" className="nav-link">Coach</a>
-            <a href="#system" className="nav-link">The 4-Pillar System</a>
-            <a href="#calculator" className="nav-link">Macro Engine</a>
-            <a href="#packages" className="nav-link">Protocols</a>
-            <a href="#faq" className="nav-link">FAQ</a>
+          <nav className="nav-links" aria-label="Primary Navigation">
+            <a href="#problem">Reality</a>
+            <a href="#story">Coach</a>
+            <a href="#system">The System</a>
+            <a href="#calculator">Macro Engine</a>
+            <a href="#packages">Protocols</a>
+            <a href="#faq">FAQ</a>
           </nav>
 
-          {/* Header Action Button & Mobile Toggle */}
-          <div className="header-actions">
-            <a href="#enquire" className="header-cta">
+          <div className="nav-cta-wrap">
+            <a href="#enquire" className="btn small">
               <span>Apply Now</span>
               <span className="arrow">→</span>
             </a>
             <button
               className="mobile-nav-toggle"
               id="mobile-toggle"
-              aria-label={mobileMenuOpen ? "Close Navigation Menu" : "Open Navigation Menu"}
-              onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+              aria-label="Open Navigation Menu"
+              onClick={() => setMobileOpen(!mobileOpen)}
             >
-              {mobileMenuOpen ? "✕" : "☰"}
+              {mobileOpen ? "✕" : "☰"}
             </button>
           </div>
         </div>
       </header>
 
       {/* Mobile Drawer Menu */}
-      <div className={`mobile-menu ${mobileMenuOpen ? "open" : ""}`} id="mobile-menu">
-        <a href="#problem" onClick={closeMobileMenu}>Reality</a>
-        <a href="#story" onClick={closeMobileMenu}>Meet Coach</a>
-        <a href="#system" onClick={closeMobileMenu}>The 4-Pillar System</a>
-        <a href="#calculator" onClick={closeMobileMenu}>Macro & Calorie Engine</a>
-        <a href="#packages" onClick={closeMobileMenu}>Coaching Protocols</a>
-        <a href="#faq" onClick={closeMobileMenu}>FAQ</a>
-        <a href="#enquire" onClick={closeMobileMenu} style={{ color: "var(--gold)", fontWeight: 700 }}>
+      <div className={`mobile-menu ${mobileOpen ? "open" : ""}`} id="mobile-menu">
+        <a href="#problem" onClick={closeMobile}>Reality</a>
+        <a href="#story" onClick={closeMobile}>Meet Coach</a>
+        <a href="#system" onClick={closeMobile}>The 4-Pillar System</a>
+        <a href="#calculator" onClick={closeMobile}>Macro & Calorie Engine</a>
+        <a href="#packages" onClick={closeMobile}>Coaching Protocols</a>
+        <a href="#faq" onClick={closeMobile}>FAQ</a>
+        <a
+          href="#enquire"
+          onClick={closeMobile}
+          style={{ color: "var(--gold)", fontWeight: 700 }}
+        >
           Start Transformation →
         </a>
       </div>

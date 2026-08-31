@@ -1,82 +1,72 @@
-﻿import Image from "next/image";
+"use client";
 
 export default function Footer() {
+  const scrollToTop = () => {
+    window.scrollTo({ top: 0, behavior: "smooth" });
+  };
+
   return (
-    <footer className="footer grain">
+    <footer>
       <div className="wrap">
         <div className="footer-top">
-          {/* Brand Info */}
-          <div className="footer-brand-col">
-            <div className="footer-brand-head">
-              <Image
-                src="/images/f9-logo.png"
-                alt="Fitness 9 Pluse"
-                width={36}
-                height={36}
-              />
-              <span className="footer-brand-title">FITNESS 9 PLUSE</span>
-            </div>
-            <p className="footer-tagline">
-              Online lifestyle and physique transformation system founded by <b>Nandhan R</b>. Biomechanical hypertrophy, precision metabolic nutrition, and relentless 1-on-1 discipline.
-            </p>
-
+          <div className="footer-brand">
             <div className="footer-coach-badge">
-              <Image
-                src="/images/nandhan-r-founder.jpg"
-                alt="Nandhan R"
-                width={48}
-                height={48}
-                className="coach-avatar"
+              <img
+                src="assets/images/nandhan-r-founder.jpg"
+                alt="Nandhan R - Head Coach & Founder"
+                className="footer-coach-thumb"
               />
-              <div>
-                <div className="coach-name">NANDHAN R</div>
-                <div className="coach-role">Head Coach & Founder • 13 Years of Zidd</div>
+              <div className="footer-coach-meta">
+                <span className="footer-coach-name">NANDHAN R</span>
+                <span className="footer-coach-sub">Head Coach & Founder, F9</span>
               </div>
             </div>
+            <p>
+              <b>Fitness Pluse 9</b> — Elite online physique transformation and lifestyle coaching system. Dedicated to science, biomechanics, and discipline.
+            </p>
+            <div className="badge-gold">F9 SYSTEM • WORLDWIDE COACHING</div>
           </div>
 
-          {/* Quick Links */}
-          <div className="footer-links-col">
-            <h4>EXPLORE</h4>
-            <ul>
-              <li><a href="#hero">Overview</a></li>
+          <div className="footer-col">
+            <h5>Navigation</h5>
+            <ul className="footer-links">
+              <li><a href="#hero">Home</a></li>
               <li><a href="#problem">The Reality</a></li>
-              <li><a href="#story">Meet Coach Nandhan</a></li>
-              <li><a href="#system">The 4-Pillar System</a></li>
+              <li><a href="#story">Meet The Coach</a></li>
+              <li><a href="#system">The 4 Pillars</a></li>
               <li><a href="#calculator">Macro Engine</a></li>
+              <li><a href="#packages">Coaching Protocols</a></li>
             </ul>
           </div>
 
-          {/* Protocols */}
-          <div className="footer-links-col">
-            <h4>PROTOCOLS</h4>
-            <ul>
-              <li><a href="#packages">12-Week Intensive Shred</a></li>
-              <li><a href="#packages">24-Week Aesthetic Recomp</a></li>
-              <li><a href="#packages">VIP Executive Mentorship</a></li>
-              <li><a href="#standards">Who We Coach</a></li>
-              <li><a href="#faq">Coaching FAQ</a></li>
+          <div className="footer-col">
+            <h5>Protocols</h5>
+            <ul className="footer-links">
+              <li><a href="#packages">12-Week Shred</a></li>
+              <li><a href="#packages">24-Week Recomp</a></li>
+              <li><a href="#packages">VIP Mentorship</a></li>
+              <li><a href="#calculator">Macro Assessment</a></li>
+              <li><a href="#faq">Client FAQ</a></li>
             </ul>
           </div>
 
-          {/* Direct WhatsApp CTA */}
-          <div className="footer-cta-col">
-            <h4>GET STARTED</h4>
-            <p>Ready to build the body and discipline you&apos;ve always wanted?</p>
-            <a href="#enquire" className="btn small full" style={{ marginTop: "14px" }}>
-              <span>Apply For Coaching</span>
-              <span className="arrow">→</span>
-            </a>
+          <div className="footer-col">
+            <h5>Contact</h5>
+            <ul className="footer-links">
+              <li><a href="#enquire">Direct Consultation</a></li>
+              <li><a href="#enquire">WhatsApp Fast-Track</a></li>
+              <li><a href="mailto:coach@fitnesspluse9.com">coach@fitnesspluse9.com</a></li>
+            </ul>
           </div>
         </div>
 
         <div className="footer-bottom">
-          <div className="footer-copy">
-            © {new Date().getFullYear()} FITNESS 9 PLUSE (F9). All Rights Reserved. Discipline Over Motivation.
+          <div>
+            © 2026 Fitness Pluse 9 (F9 Coaching). All Rights Reserved. Discipline Over Motivation.
           </div>
-          <div className="footer-meta">
-            <span>Engineered for Maximum Hypertrophy & Longevity</span>
-          </div>
+          <button className="back-to-top-btn" id="back-to-top" onClick={scrollToTop}>
+            Back To Top ↑
+          </button>
         </div>
       </div>
     </footer>
