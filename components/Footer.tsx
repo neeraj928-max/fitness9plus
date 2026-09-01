@@ -42,9 +42,9 @@ export default function Footer() {
           <div className="footer-col">
             <h5>Protocols</h5>
             <ul className="footer-links">
-              <li><a href="#packages">12-Week Shred</a></li>
-              <li><a href="#packages">24-Week Recomp</a></li>
-              <li><a href="#packages">VIP Mentorship</a></li>
+              <li><a href="#packages">1:1 Personal Coaching</a></li>
+              <li><a href="#packages">Couple Training</a></li>
+              <li><a href="#packages">Fat Shred Protocol</a></li>
               <li><a href="#calculator">Macro Assessment</a></li>
               <li><a href="#faq">Client FAQ</a></li>
             </ul>
@@ -53,9 +53,30 @@ export default function Footer() {
           <div className="footer-col">
             <h5>Contact</h5>
             <ul className="footer-links">
-              <li><a href="#enquire">Direct Consultation</a></li>
-              <li><a href="#enquire">WhatsApp Fast-Track</a></li>
-              <li><a href="mailto:coach@fitnesspluse9.com">coach@fitnesspluse9.com</a></li>
+              <li className="footer-contact-item">
+                <a href="https://wa.me/919688802995" target="_blank" rel="noopener noreferrer">
+                  <span className="footer-contact-icon">💬</span>
+                  <span>+91 96888 02995</span>
+                </a>
+              </li>
+              <li className="footer-contact-item">
+                <a href="tel:9916948899">
+                  <span className="footer-contact-icon">📞</span>
+                  <span>+91 99169 48899</span>
+                </a>
+              </li>
+              <li className="footer-contact-item">
+                <a href="https://instagram.com/fitnesspluse9" target="_blank" rel="noopener noreferrer">
+                  <span className="footer-contact-icon">📸</span>
+                  <span>@fitnesspluse9</span>
+                </a>
+              </li>
+              <li className="footer-contact-item">
+                <a href="mailto:fitnesspluse9@gmail.com">
+                  <span className="footer-contact-icon">✉️</span>
+                  <span>fitnesspluse9@gmail.com</span>
+                </a>
+              </li>
             </ul>
           </div>
         </div>

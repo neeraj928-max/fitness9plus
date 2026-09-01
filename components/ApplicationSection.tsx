@@ -4,7 +4,7 @@ import { useState } from "react";
 
 export default function ApplicationSection() {
   const [showModal, setShowModal] = useState(false);
-  const [waLink, setWaLink] = useState("https://wa.me/");
+  const [waLink, setWaLink] = useState("https://wa.me/919688802995");
 
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
@@ -28,7 +28,7 @@ export default function ApplicationSection() {
       `*Notes:* ${notesInput || "N/A"}`
     );
 
-    setWaLink(`https://wa.me/?text=${text}`);
+    setWaLink(`https://wa.me/919688802995?text=${text}`);
     setShowModal(true);
   };
 
@@ -55,25 +55,21 @@ export default function ApplicationSection() {
                 </div>
                 <div className="form-group">
                   <label htmlFor="app-phone">WhatsApp / Phone Number *</label>
-                  <input type="tel" id="app-phone" placeholder="+1 (555) 000-0000" required />
+                  <input type="tel" id="app-phone" placeholder="+91 96888 02995" required />
                 </div>
               </div>
 
               <div className="form-row">
                 <div className="form-group">
                   <label htmlFor="app-email">Email Address *</label>
-                  <input type="email" id="app-email" placeholder="john@example.com" required />
+                  <input type="email" id="app-email" placeholder="fitnesspluse9@gmail.com" required />
                 </div>
                 <div className="form-group">
                   <label htmlFor="app-program">Selected Coaching Protocol *</label>
-                  <select id="app-program" required defaultValue="24-Week Complete Aesthetic Recomp">
-                    <option value="24-Week Complete Aesthetic Recomp">
-                      24-Week Complete Recomp (Recommended)
-                    </option>
-                    <option value="12-Week Intensive Shred">12-Week Intensive Shred</option>
-                    <option value="VIP 1-on-1 Executive Mentorship">
-                      VIP 1-on-1 Executive Mentorship
-                    </option>
+                  <select id="app-program" required defaultValue="Couple Training">
+                    <option value="1:1 Personal Coaching">1:1 Personal Coaching</option>
+                    <option value="Couple Training">Couple Training (Partner Protocol)</option>
+                    <option value="Fat Shred Protocol">Fat Shred Protocol</option>
                   </select>
                 </div>
               </div>
@@ -90,6 +86,9 @@ export default function ApplicationSection() {
                     </option>
                     <option value="Lean Muscle Hypertrophy & Bulk">
                       Lean Muscle Hypertrophy & Bulk
+                    </option>
+                    <option value="Couple / Partner Fitness Goal">
+                      Couple / Partner Transformation
                     </option>
                     <option value="Strength & Athletic Performance">
                       Strength & Athletic Performance
@@ -128,6 +127,51 @@ export default function ApplicationSection() {
                 </div>
               </div>
             </form>
+
+            {/* Quick Contact Info Strip */}
+            <div className="contact-quick-strip">
+              <a
+                href="https://wa.me/919688802995"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="contact-quick-card"
+              >
+                <div className="icon-box">💬</div>
+                <div>
+                  <div className="meta-label">Call / WhatsApp</div>
+                  <div className="meta-val">+91 96888 02995</div>
+                </div>
+              </a>
+
+              <a href="tel:9916948899" className="contact-quick-card">
+                <div className="icon-box">📞</div>
+                <div>
+                  <div className="meta-label">Alternative Number</div>
+                  <div className="meta-val">+91 99169 48899</div>
+                </div>
+              </a>
+
+              <a
+                href="https://instagram.com/fitnesspluse9"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="contact-quick-card"
+              >
+                <div className="icon-box">📸</div>
+                <div>
+                  <div className="meta-label">Instagram</div>
+                  <div className="meta-val">@fitnesspluse9</div>
+                </div>
+              </a>
+
+              <a href="mailto:fitnesspluse9@gmail.com" className="contact-quick-card">
+                <div className="icon-box">✉️</div>
+                <div>
+                  <div className="meta-label">Official Email</div>
+                  <div className="meta-val">fitnesspluse9@gmail.com</div>
+                </div>
+              </a>
+            </div>
           </div>
         </div>
       </section>

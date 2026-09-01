@@ -162,10 +162,34 @@ document.addEventListener("DOMContentLoaded", () => {
   const modal = document.getElementById("success-modal");
   const modalCloseBtn = document.getElementById("modal-close-btn");
   const modalOkBtn = document.getElementById("modal-ok-btn");
+  const modalWaCta = document.getElementById("modal-whatsapp-cta");
 
   if (form && modal) {
     form.addEventListener("submit", (e) => {
       e.preventDefault();
+      const nameInput = document.getElementById("app-name")?.value || "";
+      const phoneInput = document.getElementById("app-phone")?.value || "";
+      const emailInput = document.getElementById("app-email")?.value || "";
+      const programInput = document.getElementById("app-program")?.value || "";
+      const goalInput = document.getElementById("app-goal")?.value || "";
+      const expInput = document.getElementById("app-experience")?.value || "";
+      const notesInput = document.getElementById("app-notes")?.value || "";
+
+      const text = encodeURIComponent(
+        `Hi Coach Nandhan R! I have submitted my F9 Coaching Application.\n\n` +
+        `*Name:* ${nameInput}\n` +
+        `*Phone:* ${phoneInput}\n` +
+        `*Email:* ${emailInput}\n` +
+        `*Protocol:* ${programInput}\n` +
+        `*Goal:* ${goalInput}\n` +
+        `*Experience:* ${expInput}\n` +
+        `*Notes:* ${notesInput || "N/A"}`
+      );
+
+      if (modalWaCta) {
+        modalWaCta.href = `https://wa.me/919688802995?text=${text}`;
+      }
+
       modal.classList.add("active");
     });
   }

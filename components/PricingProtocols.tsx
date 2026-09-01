@@ -24,85 +24,85 @@ export default function PricingProtocols() {
         </div>
 
         <div className="pricing-grid">
-          {/* Tier 1 */}
+          {/* Tier 1 - 1:1 Training */}
           <div className="tier-card rv">
             <div className="tier-top">
-              <div className="tier-name">12-WEEK SHRED</div>
-              <div className="tier-sub">Intensive body fat reduction, stubborn fat loss, and muscle preservation.</div>
-              <span className="tier-duration">12 Weeks Duration</span>
+              <div className="tier-name">1:1 PERSONAL TRAINING</div>
+              <div className="tier-sub">Dedicated 1-on-1 private coaching engineered for bespoke hypertrophy, biomechanics, and personalized attention.</div>
+              <span className="tier-duration">1-on-1 Private Protocol</span>
             </div>
 
             <ul className="tier-features-list">
-              <li><span className="check">✓</span> 100% Customized Hypertrophy Training Split</li>
-              <li><span className="check">✓</span> Calorie & Macro Target Adjustments</li>
-              <li><span className="check">✓</span> Weekly Metric & Form Video Check-Ins</li>
-              <li><span className="check">✓</span> Private WhatsApp Coach Chat Support</li>
-              <li><span className="check">✓</span> Supplement & Recovery Optimization</li>
+              <li><span className="check">✓</span> 100% Customized Biomechanical Training Split</li>
+              <li><span className="check">✓</span> Custom Diet Blueprint (Veg / Eggitarian / Non-Veg)</li>
+              <li><span className="check">✓</span> Weekly Metric, Scale & Form Video Audits</li>
+              <li><span className="check">✓</span> 24/7 Direct WhatsApp Coach Chat Support</li>
+              <li><span className="check">✓</span> Posture Correction, Mobility & Supplement Guidance</li>
             </ul>
 
             <a
               href="#enquire"
               className="btn ghost tier-select-btn"
-              data-tier="12-Week Intensive Shred"
-              onClick={() => handleSelectTier("12-Week Intensive Shred")}
+              data-tier="1:1 Personal Coaching"
+              onClick={() => handleSelectTier("1:1 Personal Coaching")}
             >
-              <span>Apply For 12-Week Protocol</span>
+              <span>Apply For 1:1 Training</span>
               <span className="arrow">→</span>
             </a>
           </div>
 
-          {/* Tier 2 (Featured) */}
+          {/* Tier 2 - Couple Training (Featured) */}
           <div className="tier-card featured rv rv-delay-1">
-            <div className="featured-badge">MOST POPULAR • SIGNATURE</div>
+            <div className="featured-badge">MOST POPULAR • PARTNER PROTOCOL</div>
             <div className="tier-top">
-              <div className="tier-name">24-WEEK RECOMP</div>
-              <div className="tier-sub">Complete aesthetic transformation: muscle hypertrophy, strength PRs, and metabolic acceleration.</div>
-              <span className="tier-duration">24 Weeks Duration</span>
+              <div className="tier-name">COUPLE TRAINING</div>
+              <div className="tier-sub">Synchronized dual transformation coaching for couples or partners aiming to build aesthetic physiques together.</div>
+              <span className="tier-duration">Dual 2-Person Custom Protocol</span>
             </div>
 
             <ul className="tier-features-list">
-              <li><span className="check">✓</span> Complete Biomechanical Physique Blueprint</li>
-              <li><span className="check">✓</span> Dynamic Phase-by-Phase Periodization</li>
-              <li><span className="check">✓</span> Flexible Dieting & Custom Meal Guides</li>
-              <li><span className="check">✓</span> Priority Weekly Video Analysis Audits</li>
-              <li><span className="check">✓</span> Real-Time WhatsApp Direct Access</li>
-              <li><span className="check">✓</span> Lifestyle, Travel & Dining Out Framework</li>
+              <li><span className="check">✓</span> Dual Individualized Training Plans Tailored to Both</li>
+              <li><span className="check">✓</span> Custom Diet Plans (Veg / Eggitarian / Non-Veg)</li>
+              <li><span className="check">✓</span> Joint & Individual Weekly Progress & Form Audits</li>
+              <li><span className="check">✓</span> Shared Private WhatsApp Accountability Group</li>
+              <li><span className="check">✓</span> Lifestyle, Dining Out & Travel Strategies for Two</li>
+              <li><span className="check">✓</span> Continuous Motivation & Mindset Coaching</li>
             </ul>
 
             <a
               href="#enquire"
               className="btn tier-select-btn"
-              data-tier="24-Week Complete Aesthetic Recomp"
-              onClick={() => handleSelectTier("24-Week Complete Aesthetic Recomp")}
+              data-tier="Couple Training"
+              onClick={() => handleSelectTier("Couple Training")}
             >
-              <span>Apply For 24-Week Protocol</span>
+              <span>Apply For Couple Training</span>
               <span className="arrow">→</span>
             </a>
           </div>
 
-          {/* Tier 3 */}
+          {/* Tier 3 - Fat Shred */}
           <div className="tier-card rv rv-delay-2">
             <div className="tier-top">
-              <div className="tier-name">VIP 1-ON-1 MENTORSHIP</div>
-              <div className="tier-sub">Elite executive coaching for high performers demanding top-tier guidance and daily access.</div>
-              <span className="tier-duration">Bespoke Annual / VIP</span>
+              <div className="tier-name">FAT SHRED PROTOCOL</div>
+              <div className="tier-sub">Aggressive fat reduction and metabolic conditioning engineered to incinerate stubborn adipose and reveal deep muscle definition.</div>
+              <span className="tier-duration">Targeted Fat Shred Split</span>
             </div>
 
             <ul className="tier-features-list">
-              <li><span className="check">✓</span> All-Inclusive Bespoke Transformation Engine</li>
-              <li><span className="check">✓</span> Daily Priority WhatsApp Line with Head Coach</li>
-              <li><span className="check">✓</span> Bi-Weekly 1-on-1 Zoom Strategy Calls</li>
-              <li><span className="check">✓</span> Bloodwork & Biomarker Audit Guidance</li>
-              <li><span className="check">✓</span> Advanced Peaking & Conditioning Protocols</li>
+              <li><span className="check">✓</span> Accelerated Fat Oxidation & Hypertrophy Split</li>
+              <li><span className="check">✓</span> Precision Calorie Deficit & Macro Partitioning</li>
+              <li><span className="check">✓</span> Weekly Biofeedback, Waist & Body Fat Tracking</li>
+              <li><span className="check">✓</span> Daily Habit Check & Direct WhatsApp Coaching</li>
+              <li><span className="check">✓</span> High-Intensity Conditioning & Recovery Protocols</li>
             </ul>
 
             <a
               href="#enquire"
               className="btn ghost tier-select-btn"
-              data-tier="VIP 1-on-1 Executive Mentorship"
-              onClick={() => handleSelectTier("VIP 1-on-1 Executive Mentorship")}
+              data-tier="Fat Shred Protocol"
+              onClick={() => handleSelectTier("Fat Shred Protocol")}
             >
-              <span>Apply For VIP Mentorship</span>
+              <span>Apply For Fat Shred</span>
               <span className="arrow">→</span>
             </a>
           </div>
