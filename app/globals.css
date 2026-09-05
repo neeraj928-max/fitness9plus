@@ -1616,6 +1616,344 @@ header.solid {
    WHO THIS IS FOR / NOT FOR (QUALIFICATION)
    â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â• */
 
+/* ═══════════════════════════════════════════════════════════════════
+   TRAINING SPECIALIZATIONS / DISCIPLINES SLIDE
+   ═══════════════════════════════════════════════════════════════════ */
+.disciplines-section {
+  padding: 120px 0;
+  background: radial-gradient(circle at 80% 20%, rgba(245, 166, 35, 0.05) 0%, transparent 60%), var(--ink);
+  border-top: 1px solid var(--line);
+  position: relative;
+  overflow: hidden;
+}
+
+.disciplines-head {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  gap: 32px;
+  margin-bottom: 48px;
+}
+
+.disciplines-head-left {
+  max-width: 680px;
+}
+
+.disciplines-nav-controls {
+  display: flex;
+  align-items: center;
+  gap: 24px;
+  padding-bottom: 8px;
+}
+
+.disciplines-counter {
+  display: flex;
+  align-items: baseline;
+  gap: 4px;
+  font-family: var(--display);
+  font-size: 24px;
+  letter-spacing: 0.06em;
+}
+
+.disciplines-counter .current {
+  color: var(--gold);
+  font-weight: 700;
+}
+
+.disciplines-counter .sep {
+  color: var(--ash-dim);
+  font-size: 18px;
+}
+
+.disciplines-counter .total {
+  color: var(--ash-dark);
+}
+
+.disciplines-arrows {
+  display: flex;
+  gap: 10px;
+}
+
+.discipline-arrow-btn {
+  width: 46px;
+  height: 46px;
+  border-radius: var(--radius-full);
+  background: var(--panel);
+  border: 1px solid var(--line-light);
+  color: var(--bone);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 0.25s var(--ease-out);
+}
+
+.discipline-arrow-btn:hover:not(:disabled) {
+  background: var(--gold);
+  color: #000;
+  border-color: var(--gold);
+  box-shadow: 0 4px 18px var(--gold-glow);
+  transform: scale(1.05);
+}
+
+.discipline-arrow-btn:disabled,
+.discipline-arrow-btn.disabled {
+  opacity: 0.35;
+  cursor: not-allowed;
+  transform: none;
+}
+
+.disciplines-slider-wrap {
+  position: relative;
+  margin: 0 -20px;
+  padding: 10px 20px 24px;
+}
+
+.disciplines-slider {
+  display: flex;
+  gap: 24px;
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  scroll-behavior: smooth;
+  -webkit-overflow-scrolling: touch;
+  scrollbar-width: none;
+  padding-bottom: 12px;
+}
+
+.disciplines-slider::-webkit-scrollbar {
+  display: none;
+}
+
+.discipline-card {
+  flex: 0 0 380px;
+  max-width: 380px;
+  scroll-snap-align: start;
+  background: var(--panel-card);
+  border: 1px solid var(--line);
+  border-radius: var(--radius-lg);
+  padding: 34px 28px;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  transition: all 0.35s var(--ease-out);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
+}
+
+.discipline-card:hover {
+  transform: translateY(-8px);
+  border-color: var(--line-gold);
+  box-shadow: 0 20px 45px rgba(0, 0, 0, 0.7), 0 0 30px rgba(245, 166, 35, 0.1);
+}
+
+.discipline-card.is-focused {
+  border-color: rgba(245, 166, 35, 0.4);
+}
+
+.discipline-card-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.discipline-num {
+  font-family: var(--display);
+  font-size: 38px;
+  line-height: 1;
+  color: var(--line-light);
+  letter-spacing: 0.05em;
+  transition: color 0.3s ease;
+}
+
+.discipline-card:hover .discipline-num {
+  color: var(--gold);
+}
+
+.discipline-icon-wrap {
+  width: 52px;
+  height: 52px;
+  border-radius: var(--radius-md);
+  background: var(--gold-subtle-gradient);
+  border: 1px solid var(--line-gold);
+  color: var(--gold);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.3s ease;
+}
+
+.discipline-card:hover .discipline-icon-wrap {
+  background: var(--gold);
+  color: #000;
+  box-shadow: 0 4px 20px var(--gold-glow);
+}
+
+.discipline-badge {
+  display: inline-block;
+  align-self: flex-start;
+  font-size: 10px;
+  font-weight: 800;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--gold);
+  background: rgba(245, 166, 35, 0.08);
+  border: 1px solid rgba(245, 166, 35, 0.25);
+  padding: 4px 12px;
+  border-radius: var(--radius-full);
+  margin-bottom: 14px;
+}
+
+.discipline-title {
+  font-family: var(--display);
+  font-size: 26px;
+  color: var(--white);
+  letter-spacing: 0.04em;
+  line-height: 1.15;
+  margin-bottom: 12px;
+}
+
+.discipline-desc {
+  font-size: 14px;
+  color: var(--ash);
+  line-height: 1.55;
+  margin-bottom: 20px;
+  min-height: 64px;
+}
+
+.discipline-divider {
+  height: 1px;
+  background: var(--line);
+  margin-bottom: 20px;
+}
+
+.discipline-features-title {
+  font-size: 11px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.14em;
+  color: var(--ash-dark);
+  margin-bottom: 12px;
+}
+
+.discipline-features {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin-bottom: 26px;
+  flex-grow: 1;
+}
+
+.discipline-features li {
+  font-size: 13.5px;
+  color: var(--bone);
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  line-height: 1.45;
+}
+
+.discipline-features .check {
+  color: var(--gold);
+  font-weight: 700;
+  font-size: 14px;
+  flex-shrink: 0;
+  margin-top: 1px;
+}
+
+.discipline-footer {
+  margin-top: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  border-top: 1px solid var(--line);
+  padding-top: 20px;
+}
+
+.discipline-best-for {
+  font-size: 12px;
+  color: var(--ash);
+  line-height: 1.4;
+}
+
+.discipline-best-for .label {
+  color: var(--gold);
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+}
+
+.discipline-select-btn {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  background: transparent;
+  border: 1px solid var(--line-light);
+  color: var(--bone);
+  padding: 12px 18px;
+  border-radius: var(--radius-sm);
+  font-size: 12.5px;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  cursor: pointer;
+  transition: all 0.25s var(--ease-out);
+}
+
+.discipline-select-btn:hover {
+  background: var(--gold-gradient);
+  color: #000;
+  border-color: var(--gold);
+  box-shadow: 0 4px 16px var(--gold-glow);
+  transform: translateY(-2px);
+}
+
+.disciplines-dots {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 8px;
+  margin-top: 20px;
+}
+
+.disciplines-dot {
+  width: 24px;
+  height: 4px;
+  border-radius: var(--radius-full);
+  background: var(--line-light);
+  border: none;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  padding: 0;
+}
+
+.disciplines-dot.active {
+  background: var(--gold);
+  width: 44px;
+  box-shadow: 0 0 10px var(--gold-glow);
+}
+
+@media (max-width: 900px) {
+  .disciplines-head {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  .discipline-card {
+    flex: 0 0 320px;
+    max-width: 320px;
+    padding: 28px 22px;
+  }
+}
+
+@media (max-width: 600px) {
+  .discipline-card {
+    flex: 0 0 calc(100vw - 60px);
+    max-width: calc(100vw - 60px);
+  }
+}
+
 .qualify {
   padding: 110px 0;
   background: var(--ink-2);

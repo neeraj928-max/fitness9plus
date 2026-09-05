@@ -137,6 +137,93 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   });
 
+  // 7b. Disciplines Slider Navigation & Selection
+  const discTrack = document.getElementById("disciplines-track");
+  const discPrev = document.getElementById("disc-prev-btn");
+  const discNext = document.getElementById("disc-next-btn");
+  const discCounter = document.getElementById("disc-counter-current");
+  const discDots = document.querySelectorAll("#disc-dots .disciplines-dot");
+  const discCards = document.querySelectorAll("#disciplines-track .discipline-card");
+
+  if (discTrack) {
+    const updateDiscState = () => {
+      const scrollLeft = discTrack.scrollLeft;
+      const cardWidth = discCards[0]?.offsetWidth || 380;
+      const gap = 24;
+      const activeIdx = Math.min(Math.max(Math.round(scrollLeft / (cardWidth + gap)), 0), discCards.length - 1);
+
+      if (discCounter) {
+        discCounter.textContent = String(activeIdx + 1).padStart(2, "0");
+      }
+
+      if (discPrev) {
+        if (scrollLeft <= 15) {
+          discPrev.classList.add("disabled");
+        } else {
+          discPrev.classList.remove("disabled");
+        }
+      }
+
+      if (discNext) {
+        if (scrollLeft >= discTrack.scrollWidth - discTrack.clientWidth - 15) {
+          discNext.classList.add("disabled");
+        } else {
+          discNext.classList.remove("disabled");
+        }
+      }
+
+      discDots.forEach((dot, i) => {
+        dot.classList.toggle("active", i === activeIdx);
+      });
+
+      discCards.forEach((card, i) => {
+        card.classList.toggle("is-focused", i === activeIdx);
+      });
+    };
+
+    discTrack.addEventListener("scroll", updateDiscState, { passive: true });
+
+    if (discPrev) {
+      discPrev.addEventListener("click", () => {
+        const cardWidth = discCards[0]?.offsetWidth || 380;
+        discTrack.scrollBy({ left: -(cardWidth + 24), behavior: "smooth" });
+      });
+    }
+
+    if (discNext) {
+      discNext.addEventListener("click", () => {
+        const cardWidth = discCards[0]?.offsetWidth || 380;
+        discTrack.scrollBy({ left: cardWidth + 24, behavior: "smooth" });
+      });
+    }
+
+    discDots.forEach((dot) => {
+      dot.addEventListener("click", () => {
+        const idx = parseInt(dot.getAttribute("data-index") || "0", 10);
+        if (discCards[idx]) {
+          discCards[idx].scrollIntoView({ behavior: "smooth", inline: "start", block: "nearest" });
+        }
+      });
+    });
+
+    updateDiscState();
+  }
+
+  // Discipline Apply Buttons
+  document.querySelectorAll(".discipline-select-btn").forEach((btn) => {
+    btn.addEventListener("click", () => {
+      const goal = btn.getAttribute("data-goal");
+      const goalSelect = document.getElementById("app-goal");
+      if (goalSelect && goal) {
+        goalSelect.value = goal;
+      }
+      const enquireEl = document.getElementById("enquire");
+      if (enquireEl) {
+        enquireEl.scrollIntoView({ behavior: "smooth" });
+      }
+    });
+  });
+
   // 8. FAQ Accordion
   document.querySelectorAll(".faq-item").forEach((item) => {
     const q = item.querySelector(".faq-q");

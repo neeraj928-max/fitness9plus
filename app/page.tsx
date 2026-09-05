@@ -9,6 +9,7 @@ import CoachSection from "@/components/CoachSection";
 import PillarsSection from "@/components/PillarsSection";
 import MacroCalculator from "@/components/MacroCalculator";
 import PricingProtocols from "@/components/PricingProtocols";
+import SpecializationsSection from "@/components/SpecializationsSection";
 import QualificationGrid from "@/components/QualificationGrid";
 import FaqAccordion from "@/components/FaqAccordion";
 import ApplicationSection from "@/components/ApplicationSection";
@@ -43,6 +44,7 @@ export default function Home() {
       <PillarsSection />
       <MacroCalculator />
       <PricingProtocols />
+      <SpecializationsSection />
       <QualificationGrid />
       <FaqAccordion />
       <ApplicationSection />

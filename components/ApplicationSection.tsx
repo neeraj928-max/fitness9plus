@@ -66,33 +66,27 @@ export default function ApplicationSection() {
                 </div>
                 <div className="form-group">
                   <label htmlFor="app-program">Selected Coaching Protocol *</label>
-                  <select id="app-program" required defaultValue="Couple Training">
-                    <option value="1:1 Personal Coaching">1:1 Personal Coaching</option>
+                  <select id="app-program" required defaultValue="1:1 Personal Coaching">
+                    <option value="1:1 Personal Coaching">1:1 Personal Coaching (VIP Private)</option>
                     <option value="Couple Training">Couple Training (Partner Protocol)</option>
-                    <option value="Fat Shred Protocol">Fat Shred Protocol</option>
+                    <option value="Group Classes">Group Classes (Community)</option>
                   </select>
                 </div>
               </div>
 
               <div className="form-row">
                 <div className="form-group">
-                  <label htmlFor="app-goal">Primary Fitness Goal *</label>
-                  <select id="app-goal" required defaultValue="Body Recomposition (Lose Fat + Build Muscle)">
-                    <option value="Body Recomposition (Lose Fat + Build Muscle)">
-                      Body Recomposition (Lose Fat + Build Muscle)
-                    </option>
-                    <option value="Aggressive Fat Shred & Definition">
-                      Aggressive Fat Shred & Definition
-                    </option>
-                    <option value="Lean Muscle Hypertrophy & Bulk">
-                      Lean Muscle Hypertrophy & Bulk
-                    </option>
-                    <option value="Couple / Partner Fitness Goal">
-                      Couple / Partner Transformation
-                    </option>
-                    <option value="Strength & Athletic Performance">
-                      Strength & Athletic Performance
-                    </option>
+                  <label htmlFor="app-goal">Primary Fitness Goal / Discipline *</label>
+                  <select id="app-goal" required defaultValue="1:1 Personal Coaching">
+                    <option value="Strength Training">Strength Training</option>
+                    <option value="Fat Loss Program">Fat Loss Program</option>
+                    <option value="Muscle Building">Muscle Building (Hypertrophy)</option>
+                    <option value="Functional Training">Functional Training</option>
+                    <option value="HIT & Conditioning">HIT & Conditioning</option>
+                    <option value="Mobility & Flexibility">Mobility & Flexibility</option>
+                    <option value="Core Strength & Posture Correction">Core Strength & Posture Correction</option>
+                    <option value="Body Recomposition (Lose Fat + Build Muscle)">Body Recomposition (Lose Fat + Build Muscle)</option>
+                    <option value="Couple / Partner Transformation">Couple / Partner Transformation</option>
                   </select>
                 </div>
                 <div className="form-group">

@@ -603,12 +603,34 @@
       </div>
 
       <div class="pricing-grid">
-        <!-- Tier 1 - 1:1 VIP Mentorship -->
+        <!-- Tier 1 - Group Classes (Left) -->
         <div class="tier-card rv">
-          <div class="tier-badge-vip">⚡ VIP PLAN</div>
+          <div class="tier-top">
+            <div class="tier-name">GROUP CLASSES</div>
+            <div class="tier-sub">High-energy coached group training sessions with structured programming, community accountability, and expert guidance.</div>
+            <span class="tier-duration">Community Group Protocol</span>
+          </div>
+
+          <ul class="tier-features-list">
+            <li><span class="check">✓</span> Structured Group Hypertrophy &amp; Conditioning Sessions</li>
+            <li><span class="check">✓</span> General Nutrition &amp; Macro Guidance Framework</li>
+            <li><span class="check">✓</span> Weekly Group Accountability &amp; Milestone Tracking</li>
+            <li><span class="check">✓</span> Exclusive WhatsApp Community Group Access</li>
+            <li><span class="check">✓</span> Real-Time Form Critiques During Coached Sessions</li>
+          </ul>
+
+          <a href="#enquire" class="btn ghost tier-select-btn" data-tier="Group Classes">
+            <span>Join Group Classes</span>
+            <span class="arrow">→</span>
+          </a>
+        </div>
+
+        <!-- Tier 2 - 1:1 VIP Mentorship (Middle - Most Popular) -->
+        <div class="tier-card featured rv rv-delay-1">
+          <div class="featured-badge">MOST POPULAR • 1:1 VIP PROTOCOL</div>
           <div class="tier-top">
             <div class="tier-name">1:1 MENTORSHIP</div>
-            <div class="tier-sub">Elite private coaching with full direct access to your coach — the highest level of personalised transformation available.</div>
+            <div class="tier-sub">Elite private coaching with full direct access to your coach — the highest level of bespoke biomechanical transformation available.</div>
             <span class="tier-duration">1-on-1 VIP Private Protocol</span>
           </div>
 
@@ -621,18 +643,17 @@
             <li><span class="check">✓</span> Priority Response &amp; Mindset Mentorship</li>
           </ul>
 
-          <a href="#enquire" class="btn ghost tier-select-btn" data-tier="1:1 VIP Mentorship">
-            <span>Apply For VIP Mentorship</span>
+          <a href="#enquire" class="btn tier-select-btn" data-tier="1:1 VIP Mentorship">
+            <span>Apply For 1:1 Mentorship</span>
             <span class="arrow">→</span>
           </a>
         </div>
 
-        <!-- Tier 2 - Couple Training (Featured) -->
-        <div class="tier-card featured rv rv-delay-1">
-          <div class="featured-badge">MOST POPULAR • PARTNER PROTOCOL</div>
+        <!-- Tier 3 - Couple Training (Right) -->
+        <div class="tier-card rv rv-delay-2">
           <div class="tier-top">
             <div class="tier-name">COUPLE TRAINING</div>
-            <div class="tier-sub">Synchronized dual transformation coaching for couples or partners building their best physiques together.</div>
+            <div class="tier-sub">Synchronized dual transformation coaching for couples or partners building their best aesthetic physiques together.</div>
             <span class="tier-duration">Dual 2-Person Custom Protocol</span>
           </div>
 
@@ -645,33 +666,252 @@
             <li><span class="check">✓</span> Continuous Motivation &amp; Mindset Coaching</li>
           </ul>
 
-          <a href="#enquire" class="btn tier-select-btn" data-tier="Couple Training">
+          <a href="#enquire" class="btn ghost tier-select-btn" data-tier="Couple Training">
             <span>Apply For Couple Training</span>
             <span class="arrow">→</span>
           </a>
         </div>
+      </div>
+    </div>
+  </section>
 
-        <!-- Tier 3 - Group Classes -->
-        <div class="tier-card rv rv-delay-2">
-          <div class="tier-top">
-            <div class="tier-name">GROUP CLASSES</div>
-            <div class="tier-sub">High-energy coached group training sessions with structured programming, community accountability, and expert guidance.</div>
-            <span class="tier-duration">Community Group Protocol</span>
+  <!-- ═══════════════════════════════════════════════════════════════════
+       TRAINING SPECIALIZATIONS / DISCIPLINES SLIDE
+       ═══════════════════════════════════════════════════════════════════ -->
+  <section class="disciplines-section grain" id="disciplines">
+    <div class="wrap">
+      <!-- Slide Header -->
+      <div class="disciplines-head rv">
+        <div class="disciplines-head-left">
+          <div class="eyebrow">Targeted Programming Suite</div>
+          <h2>TRAINING <em>SPECIALIZATIONS</em></h2>
+          <p class="sub">
+            Every physique requires precision targeting. Choose a primary discipline or integrate multiple programs into your bespoke 1:1 or partner protocol.
+          </p>
+        </div>
+
+        <!-- Slider Navigation Controls -->
+        <div class="disciplines-nav-controls">
+          <div class="disciplines-counter">
+            <span class="current" id="disc-counter-current">01</span>
+            <span class="sep">/</span>
+            <span class="total">07</span>
           </div>
 
-          <ul class="tier-features-list">
-            <li><span class="check">✓</span> Structured Group Training Sessions</li>
-            <li><span class="check">✓</span> General Nutrition &amp; Macro Guidance</li>
-            <li><span class="check">✓</span> Weekly Group Accountability Check-ins</li>
-            <li><span class="check">✓</span> WhatsApp Community Group Access</li>
-            <li><span class="check">✓</span> Live Form Feedback During Sessions</li>
-          </ul>
-
-          <a href="#enquire" class="btn ghost tier-select-btn" data-tier="Group Classes">
-            <span>Join Group Classes</span>
-            <span class="arrow">→</span>
-          </a>
+          <div class="disciplines-arrows">
+            <button type="button" class="discipline-arrow-btn disabled" id="disc-prev-btn" aria-label="Previous specialization">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 18 9 12 15 6"></polyline></svg>
+            </button>
+            <button type="button" class="discipline-arrow-btn" id="disc-next-btn" aria-label="Next specialization">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"></polyline></svg>
+            </button>
+          </div>
         </div>
+      </div>
+
+      <!-- Interactive Slider Track -->
+      <div class="disciplines-slider-wrap rv rv-delay-1">
+        <div class="disciplines-slider" id="disciplines-track">
+          <!-- Discipline 01: Strength Training -->
+          <div class="discipline-card is-focused" data-index="0">
+            <div class="discipline-card-header">
+              <span class="discipline-num">01</span>
+              <div class="discipline-icon-wrap">
+                <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="m6.5 6.5 11 11"></path><path d="m21 21-1-1"></path><path d="m3 3 1 1"></path><path d="m18 22 4-4"></path><path d="m2 6 4-4"></path><path d="m3 10 7-7"></path><path d="m14 21 7-7"></path></svg>
+              </div>
+            </div>
+            <div class="discipline-badge">MAX POWER &amp; FORCE</div>
+            <h3 class="discipline-title">STRENGTH TRAINING</h3>
+            <p class="discipline-desc">Heavy compound biomechanics, central nervous system adaptation, and periodized progressive overload designed to build dense, unbreakable real-world strength.</p>
+            <div class="discipline-divider"></div>
+            <div class="discipline-features-title">Core Focus Areas:</div>
+            <ul class="discipline-features">
+              <li><span class="check">✓</span> Periodized Compound Overload (Squat, Bench, Deadlift)</li>
+              <li><span class="check">✓</span> Neuromuscular Recruitment &amp; Peak Force Generation</li>
+              <li><span class="check">✓</span> Tendon, Ligament &amp; Skeletal Density Reinforcement</li>
+            </ul>
+            <div class="discipline-footer">
+              <div class="discipline-best-for"><span class="label">Focus:</span> Raw Power &amp; Dense Bone Structure</div>
+              <button type="button" class="discipline-select-btn" data-goal="Strength Training">
+                <span>Apply For This Discipline</span>
+                <span class="arrow">→</span>
+              </button>
+            </div>
+          </div>
+
+          <!-- Discipline 02: Fat Loss Program -->
+          <div class="discipline-card" data-index="1">
+            <div class="discipline-card-header">
+              <span class="discipline-num">02</span>
+              <div class="discipline-icon-wrap">
+                <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M8.5 14.5A2.5 2.5 0 0 0 11 12c0-1.38-.5-2-1-3-1.072-2.143-.224-4.054 2-6 .5 2.5 2 4.9 4 6.5 2 1.6 3 3.5 3 5.5a7 7 0 1 1-14 0c0-1.153.433-2.294 1-3a2.5 2.5 0 0 0 2.5 2.5z"></path></svg>
+              </div>
+            </div>
+            <div class="discipline-badge">METABOLIC SHRED</div>
+            <h3 class="discipline-title">FAT LOSS PROGRAM</h3>
+            <p class="discipline-desc">Science-backed calorie partitioning, metabolic resistance circuits, and steady-state conditioning to incinerate stubborn adipose while preserving lean muscle.</p>
+            <div class="discipline-divider"></div>
+            <div class="discipline-features-title">Core Focus Areas:</div>
+            <ul class="discipline-features">
+              <li><span class="check">✓</span> Precision Calorie Deficit &amp; Macro Partitioning</li>
+              <li><span class="check">✓</span> Lean Muscle Retention During Thermogenesis</li>
+              <li><span class="check">✓</span> Stubborn Adipose &amp; Visceral Fat Oxidation</li>
+            </ul>
+            <div class="discipline-footer">
+              <div class="discipline-best-for"><span class="label">Focus:</span> Rapid Fat Reduction &amp; Razor Definition</div>
+              <button type="button" class="discipline-select-btn" data-goal="Fat Loss Program">
+                <span>Apply For This Discipline</span>
+                <span class="arrow">→</span>
+              </button>
+            </div>
+          </div>
+
+          <!-- Discipline 03: Muscle Building -->
+          <div class="discipline-card" data-index="2">
+            <div class="discipline-card-header">
+              <span class="discipline-num">03</span>
+              <div class="discipline-icon-wrap">
+                <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2a4 4 0 0 0-4 4v2H6a2 2 0 0 0-2 2v2a6 6 0 0 0 6 6h4a6 6 0 0 0 6-6v-2a2 2 0 0 0-2-2h-2V6a4 4 0 0 0-4-4z"></path></svg>
+              </div>
+            </div>
+            <div class="discipline-badge">HYPERTROPHY ARCHITECTURE</div>
+            <h3 class="discipline-title">MUSCLE BUILDING</h3>
+            <p class="discipline-desc">High mechanical tension, targeted metabolic stress, and scientific muscle fiber recruitment tailored to your biomechanics for maximum aesthetic hypertrophy.</p>
+            <div class="discipline-divider"></div>
+            <div class="discipline-features-title">Core Focus Areas:</div>
+            <ul class="discipline-features">
+              <li><span class="check">✓</span> Precision Range of Motion &amp; Peak Contraction Tension</li>
+              <li><span class="check">✓</span> Hypertrophy Volume &amp; Muscle Split Calibration</li>
+              <li><span class="check">✓</span> Mind-Muscle Neurological Fiber Recruitment</li>
+            </ul>
+            <div class="discipline-footer">
+              <div class="discipline-best-for"><span class="label">Focus:</span> Aesthetic Hypertrophy &amp; Muscular Symmetry</div>
+              <button type="button" class="discipline-select-btn" data-goal="Muscle Building">
+                <span>Apply For This Discipline</span>
+                <span class="arrow">→</span>
+              </button>
+            </div>
+          </div>
+
+          <!-- Discipline 04: Functional Training -->
+          <div class="discipline-card" data-index="3">
+            <div class="discipline-card-header">
+              <span class="discipline-num">04</span>
+              <div class="discipline-icon-wrap">
+                <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M22 12h-4l-3 9L9 3l-3 9H2"></path></svg>
+              </div>
+            </div>
+            <div class="discipline-badge">ATHLETIC PERFORMANCE</div>
+            <h3 class="discipline-title">FUNCTIONAL TRAINING</h3>
+            <p class="discipline-desc">Multi-planar movement patterns, stability drills, and kinetic chain integration to build a body that looks elite and performs effortlessly in everyday life.</p>
+            <div class="discipline-divider"></div>
+            <div class="discipline-features-title">Core Focus Areas:</div>
+            <ul class="discipline-features">
+              <li><span class="check">✓</span> Multi-Planar Movement &amp; Rotational Torque</li>
+              <li><span class="check">✓</span> Unilateral Balance &amp; Core Stabilization</li>
+              <li><span class="check">✓</span> Real-World Kinetic Chain Durability</li>
+            </ul>
+            <div class="discipline-footer">
+              <div class="discipline-best-for"><span class="label">Focus:</span> Agility, Real-World Athleticism &amp; Stamina</div>
+              <button type="button" class="discipline-select-btn" data-goal="Functional Training">
+                <span>Apply For This Discipline</span>
+                <span class="arrow">→</span>
+              </button>
+            </div>
+          </div>
+
+          <!-- Discipline 05: HIT & Conditioning -->
+          <div class="discipline-card" data-index="4">
+            <div class="discipline-card-header">
+              <span class="discipline-num">05</span>
+              <div class="discipline-icon-wrap">
+                <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"></polygon></svg>
+              </div>
+            </div>
+            <div class="discipline-badge">MAX VO2 &amp; ENDURANCE</div>
+            <h3 class="discipline-title">HIT &amp; CONDITIONING</h3>
+            <p class="discipline-desc">High-intensity interval surges and heart-rate zone conditioning engineered to elevate VO2 max, burn high caloric volume, and forge unstoppable stamina.</p>
+            <div class="discipline-divider"></div>
+            <div class="discipline-features-title">Core Focus Areas:</div>
+            <ul class="discipline-features">
+              <li><span class="check">✓</span> Explosive Anaerobic Work Capacity Bursts</li>
+              <li><span class="check">✓</span> Elevated Post-Exercise Oxygen Consumption (EPOC)</li>
+              <li><span class="check">✓</span> Cardiovascular Stamina &amp; Heart Health Optimization</li>
+            </ul>
+            <div class="discipline-footer">
+              <div class="discipline-best-for"><span class="label">Focus:</span> Explosive Energy &amp; Cardiovascular Endurance</div>
+              <button type="button" class="discipline-select-btn" data-goal="HIT & Conditioning">
+                <span>Apply For This Discipline</span>
+                <span class="arrow">→</span>
+              </button>
+            </div>
+          </div>
+
+          <!-- Discipline 06: Mobility & Flexibility -->
+          <div class="discipline-card" data-index="5">
+            <div class="discipline-card-header">
+              <span class="discipline-num">06</span>
+              <div class="discipline-icon-wrap">
+                <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><polygon points="16.24 7.76 14.12 14.12 7.76 16.24 9.88 9.88 16.24 7.76"></polygon></svg>
+              </div>
+            </div>
+            <div class="discipline-badge">JOINT LONGEVITY</div>
+            <h3 class="discipline-title">MOBILITY &amp; FLEXIBILITY</h3>
+            <p class="discipline-desc">Active range of motion protocols, deep fascial release, and dynamic stretching to eliminate chronic stiffness, expand movement freedom, and bulletproof against injury.</p>
+            <div class="discipline-divider"></div>
+            <div class="discipline-features-title">Core Focus Areas:</div>
+            <ul class="discipline-features">
+              <li><span class="check">✓</span> Active End-Range Joint Expansion Protocols</li>
+              <li><span class="check">✓</span> Thoracic Spine &amp; Hip Capsule Decompression</li>
+              <li><span class="check">✓</span> Long-Term Injury Resistance &amp; Faster Recovery</li>
+            </ul>
+            <div class="discipline-footer">
+              <div class="discipline-best-for"><span class="label">Focus:</span> Pain-Free Movement &amp; Lifelong Joint Health</div>
+              <button type="button" class="discipline-select-btn" data-goal="Mobility & Flexibility">
+                <span>Apply For This Discipline</span>
+                <span class="arrow">→</span>
+              </button>
+            </div>
+          </div>
+
+          <!-- Discipline 07: Core Strength & Posture Correction -->
+          <div class="discipline-card" data-index="6">
+            <div class="discipline-card-header">
+              <span class="discipline-num">07</span>
+              <div class="discipline-icon-wrap">
+                <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path><path d="m9 12 2 2 4-4"></path></svg>
+              </div>
+            </div>
+            <div class="discipline-badge">STRUCTURAL REALIGNMENT</div>
+            <h3 class="discipline-title">CORE STRENGTH &amp; POSTURE CORRECTION</h3>
+            <p class="discipline-desc">Targeted lumbo-pelvic stabilization, anterior pelvic tilt reversal, and spinal erector reinforcement to correct desk posture and sculpt an iron core.</p>
+            <div class="discipline-divider"></div>
+            <div class="discipline-features-title">Core Focus Areas:</div>
+            <ul class="discipline-features">
+              <li><span class="check">✓</span> Deep Transverse Abdominis &amp; Pelvic Stability</li>
+              <li><span class="check">✓</span> Anterior Pelvic Tilt &amp; Rounded Shoulder Correction</li>
+              <li><span class="check">✓</span> Spinal Decompression &amp; Chronic Back Fatigue Relief</li>
+            </ul>
+            <div class="discipline-footer">
+              <div class="discipline-best-for"><span class="label">Focus:</span> Iron Core &amp; Upright Confident Posture</div>
+              <button type="button" class="discipline-select-btn" data-goal="Core Strength & Posture Correction">
+                <span>Apply For This Discipline</span>
+                <span class="arrow">→</span>
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Slider Indicator Dots -->
+      <div class="disciplines-dots" id="disc-dots">
+        <button type="button" class="disciplines-dot active" data-index="0" aria-label="Go to slide 1"></button>
+        <button type="button" class="disciplines-dot" data-index="1" aria-label="Go to slide 2"></button>
+        <button type="button" class="disciplines-dot" data-index="2" aria-label="Go to slide 3"></button>
+        <button type="button" class="disciplines-dot" data-index="3" aria-label="Go to slide 4"></button>
+        <button type="button" class="disciplines-dot" data-index="4" aria-label="Go to slide 5"></button>
+        <button type="button" class="disciplines-dot" data-index="5" aria-label="Go to slide 6"></button>
+        <button type="button" class="disciplines-dot" data-index="6" aria-label="Go to slide 7"></button>
       </div>
     </div>
   </section>
@@ -836,8 +1076,8 @@
             <div class="form-group">
               <label for="app-program">Selected Coaching Protocol *</label>
               <select id="app-program" required>
-                <option value="1:1 VIP Mentorship">1:1 VIP Mentorship (Private)</option>
-                <option value="Couple Training" selected>Couple Training (Partner Protocol)</option>
+                <option value="1:1 VIP Mentorship" selected>1:1 VIP Mentorship (Private)</option>
+                <option value="Couple Training">Couple Training (Partner Protocol)</option>
                 <option value="Group Classes">Group Classes (Community)</option>
               </select>
             </div>
@@ -845,13 +1085,17 @@
 
           <div class="form-row">
             <div class="form-group">
-              <label for="app-goal">Primary Fitness Goal *</label>
+              <label for="app-goal">Primary Fitness Goal / Discipline *</label>
               <select id="app-goal" required>
+                <option value="Strength Training">Strength Training</option>
+                <option value="Fat Loss Program">Fat Loss Program</option>
+                <option value="Muscle Building">Muscle Building (Hypertrophy)</option>
+                <option value="Functional Training">Functional Training</option>
+                <option value="HIT &amp; Conditioning">HIT &amp; Conditioning</option>
+                <option value="Mobility &amp; Flexibility">Mobility &amp; Flexibility</option>
+                <option value="Core Strength &amp; Posture Correction">Core Strength &amp; Posture Correction</option>
                 <option value="Body Recomposition (Lose Fat + Build Muscle)" selected>Body Recomposition (Lose Fat + Build Muscle)</option>
-                <option value="Aggressive Fat Shred & Definition">Aggressive Fat Shred & Definition</option>
-                <option value="Lean Muscle Hypertrophy & Bulk">Lean Muscle Hypertrophy & Bulk</option>
-                <option value="Couple / Partner Fitness Goal">Couple / Partner Transformation</option>
-                <option value="Strength & Athletic Performance">Strength & Athletic Performance</option>
+                <option value="Couple / Partner Transformation">Couple / Partner Transformation</option>
               </select>
             </div>
             <div class="form-group">
