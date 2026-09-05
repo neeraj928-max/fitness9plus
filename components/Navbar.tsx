@@ -21,15 +21,15 @@ export default function Navbar() {
     <>
       <header id="hd" className={solid ? "solid" : ""}>
         <div className="nav">
-          <a href="#hero" className="brand" aria-label="Fitness Pluse 9 Home">
+          <a href="#hero" className="brand" aria-label="Fitness Plus 9 Home">
             <img
-              src="assets/images/f9-brand-logo.jpg"
-              alt="Fitness Pluse 9 Logo"
+              src="assets/images/f9-brand-logo.png"
+              alt="Fitness Plus 9 Logo"
               className="brand-logo-img"
             />
             <img
               src="assets/images/f9-wordmark.png"
-              alt="Fitness 9 Pluse"
+              alt="Fitness Plus 9"
               className="brand-wordmark-img"
             />
           </a>

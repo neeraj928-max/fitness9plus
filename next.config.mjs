@@ -10,6 +10,14 @@ const nextConfig = {
   experimental: {
     workerThreads: false,
     cpus: 1
+  },
+  async rewrites() {
+    return [
+      {
+        source: '/assets/images/:path*',
+        destination: '/images/:path*',
+      },
+    ];
   }
 };
 
