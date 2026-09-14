@@ -146,7 +146,7 @@ export default function ApplicationSection() {
               </a>
 
               <a
-                href="https://instagram.com/fitnesspluse9"
+                href="https://instagram.com/fitness_plus9"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="contact-quick-card"
@@ -154,7 +154,7 @@ export default function ApplicationSection() {
                 <div className="icon-box">📸</div>
                 <div>
                   <div className="meta-label">Instagram</div>
-                  <div className="meta-val">@fitnesspluse9</div>
+                  <div className="meta-val">@fitness_plus9</div>
                 </div>
               </a>
 

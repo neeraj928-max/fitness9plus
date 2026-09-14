@@ -66,9 +66,9 @@ export default function Footer() {
                 </a>
               </li>
               <li className="footer-contact-item">
-                <a href="https://instagram.com/fitnesspluse9" target="_blank" rel="noopener noreferrer">
+                <a href="https://instagram.com/fitness_plus9" target="_blank" rel="noopener noreferrer">
                   <span className="footer-contact-icon">📸</span>
-                  <span>@fitnesspluse9</span>
+                  <span>@fitness_plus9</span>
                 </a>
               </li>
               <li className="footer-contact-item">
