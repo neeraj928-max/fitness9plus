@@ -1,21 +1,62 @@
 "use client";
 
 import { useState } from "react";
+import { supabase } from "@/lib/supabase";
 
 export default function ApplicationSection() {
   const [showModal, setShowModal] = useState(false);
   const [waLink, setWaLink] = useState("https://wa.me/919688802995");
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [saveSuccess, setSaveSuccess] = useState(true);
 
-  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
+    setIsSubmitting(true);
     const form = e.currentTarget;
-    const nameInput = (form.querySelector("#app-name") as HTMLInputElement)?.value || "";
-    const phoneInput = (form.querySelector("#app-phone") as HTMLInputElement)?.value || "";
-    const emailInput = (form.querySelector("#app-email") as HTMLInputElement)?.value || "";
+    const nameInput = (form.querySelector("#app-name") as HTMLInputElement)?.value.trim() || "";
+    const phoneInput = (form.querySelector("#app-phone") as HTMLInputElement)?.value.trim() || "";
+    const emailInput = (form.querySelector("#app-email") as HTMLInputElement)?.value.trim() || "";
     const programInput = (form.querySelector("#app-program") as HTMLSelectElement)?.value || "";
     const goalInput = (form.querySelector("#app-goal") as HTMLSelectElement)?.value || "";
     const expInput = (form.querySelector("#app-experience") as HTMLSelectElement)?.value || "";
-    const notesInput = (form.querySelector("#app-notes") as HTMLTextAreaElement)?.value || "";
+    const notesInput = (form.querySelector("#app-notes") as HTMLTextAreaElement)?.value.trim() || "";
+
+    const payload = {
+      full_name: nameInput,
+      phone: phoneInput,
+      email: emailInput,
+      program: programInput,
+      goal: goalInput,
+      experience: expInput,
+      notes: notesInput,
+    };
+
+    let isSaved = false;
+
+    try {
+      // 1. Direct Supabase insert
+      const { error } = await supabase.from("appointments").insert([payload]);
+      if (!error) {
+        isSaved = true;
+      } else {
+        console.warn("Direct Supabase insert returned notice, trying API route fallback...", error.message);
+        const res = await fetch("/api/appointments", {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify(payload),
+        });
+        if (res.ok) {
+          isSaved = true;
+        } else {
+          console.error("API route error:", await res.text());
+        }
+      }
+    } catch (err) {
+      console.error("Error submitting appointment:", err);
+    }
+
+    setSaveSuccess(isSaved);
+    setIsSubmitting(false);
 
     const text = encodeURIComponent(
       `Hi Coach Nandhan R! I have submitted my F9 Coaching Application.\n\n` +
@@ -111,13 +152,20 @@ export default function ApplicationSection() {
                 <button
                   type="submit"
                   className="btn"
-                  style={{ width: "100%", maxWidth: "380px", padding: "18px 30px" }}
+                  disabled={isSubmitting}
+                  style={{
+                    width: "100%",
+                    maxWidth: "380px",
+                    padding: "18px 30px",
+                    opacity: isSubmitting ? 0.75 : 1,
+                    cursor: isSubmitting ? "not-allowed" : "pointer",
+                  }}
                 >
-                  <span>Submit Coaching Application</span>
-                  <span className="arrow">→</span>
+                  <span>{isSubmitting ? "Saving Application..." : "Submit Coaching Application"}</span>
+                  <span className="arrow">{isSubmitting ? "⏳" : "→"}</span>
                 </button>
                 <div className="form-guarantee">
-                  <span>🔒 100% Confidential • Fast Direct WhatsApp Response</span>
+                  <span>🔒 100% Confidential • Stored Securely & Fast WhatsApp Response</span>
                 </div>
               </div>
             </form>
@@ -182,9 +230,11 @@ export default function ApplicationSection() {
             ×
           </button>
           <div className="modal-icon">✓</div>
-          <h3>APPLICATION RECEIVED</h3>
+          <h3>{saveSuccess ? "APPLICATION SAVED & RECEIVED" : "APPLICATION RECEIVED"}</h3>
           <p>
-            Thank you! Your coaching application for <b>Fitness Pluse 9</b> has been received. Coach will review your metrics and message you directly via WhatsApp within 24 hours.
+            {saveSuccess
+              ? "Thank you! Your appointment booking details have been securely recorded in our Supabase database for Fitness Pluse 9. Coach Nandhan R will review your metrics and message you directly."
+              : "Thank you! Your coaching application has been processed. You can also connect directly with Coach via WhatsApp below."}
           </p>
           <div style={{ display: "flex", flexDirection: "column", gap: "12px" }}>
             <a

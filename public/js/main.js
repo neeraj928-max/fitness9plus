@@ -252,15 +252,55 @@ document.addEventListener("DOMContentLoaded", () => {
   const modalWaCta = document.getElementById("modal-whatsapp-cta");
 
   if (form && modal) {
-    form.addEventListener("submit", (e) => {
+    form.addEventListener("submit", async (e) => {
       e.preventDefault();
-      const nameInput = document.getElementById("app-name")?.value || "";
-      const phoneInput = document.getElementById("app-phone")?.value || "";
-      const emailInput = document.getElementById("app-email")?.value || "";
+      const submitBtn = form.querySelector('button[type="submit"]');
+      const originalText = submitBtn ? submitBtn.innerHTML : "";
+
+      if (submitBtn) {
+        submitBtn.setAttribute("disabled", "true");
+        submitBtn.style.opacity = "0.7";
+        submitBtn.innerHTML = "<span>Saving Application...</span> <span class='arrow'>⏳</span>";
+      }
+
+      const nameInput = document.getElementById("app-name")?.value?.trim() || "";
+      const phoneInput = document.getElementById("app-phone")?.value?.trim() || "";
+      const emailInput = document.getElementById("app-email")?.value?.trim() || "";
       const programInput = document.getElementById("app-program")?.value || "";
       const goalInput = document.getElementById("app-goal")?.value || "";
       const expInput = document.getElementById("app-experience")?.value || "";
-      const notesInput = document.getElementById("app-notes")?.value || "";
+      const notesInput = document.getElementById("app-notes")?.value?.trim() || "";
+
+      const payload = {
+        full_name: nameInput,
+        phone: phoneInput,
+        email: emailInput,
+        program: programInput,
+        goal: goalInput,
+        experience: expInput,
+        notes: notesInput
+      };
+
+      try {
+        await fetch("https://osedvqbxfznlgrftwvxa.supabase.co/rest/v1/appointments", {
+          method: "POST",
+          headers: {
+            "apikey": "sb_publishable_VqW_nKJFmfjPI9kmoJwFZA_XLc5IgEt",
+            "Authorization": "Bearer sb_publishable_VqW_nKJFmfjPI9kmoJwFZA_XLc5IgEt",
+            "Content-Type": "application/json",
+            "Prefer": "return=minimal"
+          },
+          body: JSON.stringify(payload)
+        });
+      } catch (err) {
+        console.error("Supabase booking save error:", err);
+      } finally {
+        if (submitBtn) {
+          submitBtn.removeAttribute("disabled");
+          submitBtn.style.opacity = "1";
+          submitBtn.innerHTML = originalText;
+        }
+      }
 
       const text = encodeURIComponent(
         `Hi Coach Nandhan R! I have submitted my F9 Coaching Application.\n\n` +
