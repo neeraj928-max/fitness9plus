@@ -281,8 +281,11 @@ document.addEventListener("DOMContentLoaded", () => {
         notes: notesInput
       };
 
+      let isSaved = false;
+      let dbErrorMsg = "";
+
       try {
-        await fetch("https://osedvqbxfznlgrftwvxa.supabase.co/rest/v1/appointments", {
+        const res = await fetch("https://osedvqbxfznlgrftwvxa.supabase.co/rest/v1/appointments", {
           method: "POST",
           headers: {
             "apikey": "sb_publishable_VqW_nKJFmfjPI9kmoJwFZA_XLc5IgEt",
@@ -292,8 +295,17 @@ document.addEventListener("DOMContentLoaded", () => {
           },
           body: JSON.stringify(payload)
         });
+
+        if (res.ok) {
+          isSaved = true;
+        } else {
+          const errData = await res.json().catch(() => ({}));
+          dbErrorMsg = errData.message || "Failed to save into database";
+          console.warn("Supabase booking notice:", dbErrorMsg);
+        }
       } catch (err) {
         console.error("Supabase booking save error:", err);
+        dbErrorMsg = err.message || "Network error";
       } finally {
         if (submitBtn) {
           submitBtn.removeAttribute("disabled");
@@ -315,6 +327,24 @@ document.addEventListener("DOMContentLoaded", () => {
 
       if (modalWaCta) {
         modalWaCta.href = `https://wa.me/919688802995?text=${text}`;
+      }
+
+      const modalHeading = modal.querySelector("h3");
+      const modalDesc = modal.querySelector("p");
+      const modalIcon = modal.querySelector(".modal-icon");
+
+      if (isSaved) {
+        if (modalHeading) modalHeading.textContent = "APPLICATION SAVED TO DATABASE";
+        if (modalIcon) modalIcon.textContent = "✓";
+        if (modalDesc) {
+          modalDesc.innerHTML = "Thank you! Your appointment booking details have been securely recorded in our Supabase database for <b>Fitness Pluse 9</b>. Coach Nandhan R will review your metrics and message you directly.";
+        }
+      } else if (dbErrorMsg) {
+        if (modalHeading) modalHeading.textContent = "APPLICATION PROCESSED";
+        if (modalIcon) modalIcon.textContent = "⚠️";
+        if (modalDesc) {
+          modalDesc.innerHTML = `Thank you! Your application is ready for Coach Nandhan R via WhatsApp.<br><span style="display:block;margin-top:10px;padding:8px 12px;background:rgba(239,68,68,0.15);border:1px solid rgba(239,68,68,0.4);border-radius:8px;font-size:0.85em;color:#fca5a5;text-align:left;"><b>Database Notice:</b> ${dbErrorMsg}</span>`;
+        }
       }
 
       modal.classList.add("active");

@@ -7,11 +7,13 @@ export default function ApplicationSection() {
   const [showModal, setShowModal] = useState(false);
   const [waLink, setWaLink] = useState("https://wa.me/919688802995");
   const [isSubmitting, setIsSubmitting] = useState(false);
-  const [saveSuccess, setSaveSuccess] = useState(true);
+  const [saveSuccess, setSaveSuccess] = useState(false);
+  const [dbError, setDbError] = useState<string | null>(null);
 
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     setIsSubmitting(true);
+    setDbError(null);
     const form = e.currentTarget;
     const nameInput = (form.querySelector("#app-name") as HTMLInputElement)?.value.trim() || "";
     const phoneInput = (form.querySelector("#app-phone") as HTMLInputElement)?.value.trim() || "";
@@ -32,6 +34,7 @@ export default function ApplicationSection() {
     };
 
     let isSaved = false;
+    let failureReason: string | null = null;
 
     try {
       // 1. Direct Supabase insert
@@ -39,7 +42,10 @@ export default function ApplicationSection() {
       if (!error) {
         isSaved = true;
       } else {
-        console.warn("Direct Supabase insert returned notice, trying API route fallback...", error.message);
+        console.warn("Direct Supabase insert notice:", error.message, error.details);
+        failureReason = error.message;
+
+        // 2. Try fallback API route
         const res = await fetch("/api/appointments", {
           method: "POST",
           headers: { "Content-Type": "application/json" },
@@ -47,15 +53,19 @@ export default function ApplicationSection() {
         });
         if (res.ok) {
           isSaved = true;
+          failureReason = null;
         } else {
-          console.error("API route error:", await res.text());
+          const apiErr = await res.json().catch(() => ({ error: "Server API error" }));
+          failureReason = apiErr.error || error.message;
         }
       }
     } catch (err) {
       console.error("Error submitting appointment:", err);
+      failureReason = err instanceof Error ? err.message : "Network error";
     }
 
     setSaveSuccess(isSaved);
+    setDbError(isSaved ? null : failureReason);
     setIsSubmitting(false);
 
     const text = encodeURIComponent(
@@ -229,12 +239,34 @@ export default function ApplicationSection() {
           >
             ×
           </button>
-          <div className="modal-icon">✓</div>
-          <h3>{saveSuccess ? "APPLICATION SAVED & RECEIVED" : "APPLICATION RECEIVED"}</h3>
+          <div className="modal-icon">{saveSuccess ? "✓" : (dbError ? "⚠️" : "✓")}</div>
+          <h3>{saveSuccess ? "APPLICATION SAVED TO DATABASE" : "APPLICATION PROCESSED"}</h3>
           <p>
             {saveSuccess
               ? "Thank you! Your appointment booking details have been securely recorded in our Supabase database for Fitness Pluse 9. Coach Nandhan R will review your metrics and message you directly."
-              : "Thank you! Your coaching application has been processed. You can also connect directly with Coach via WhatsApp below."}
+              : (
+                <>
+                  Thank you! Your details have been received and prepared for Coach.
+                  {dbError && (
+                    <span
+                      style={{
+                        display: "block",
+                        marginTop: "10px",
+                        padding: "8px 12px",
+                        background: "rgba(239, 68, 68, 0.15)",
+                        border: "1px solid rgba(239, 68, 68, 0.4)",
+                        borderRadius: "8px",
+                        fontSize: "0.85em",
+                        color: "#fca5a5",
+                        textAlign: "left",
+                        lineHeight: 1.4,
+                      }}
+                    >
+                      <b>Database Notice:</b> {dbError}
+                    </span>
+                  )}
+                </>
+              )}
           </p>
           <div style={{ display: "flex", flexDirection: "column", gap: "12px" }}>
             <a

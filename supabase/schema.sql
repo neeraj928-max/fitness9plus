@@ -1,10 +1,10 @@
 -- ==============================================================================
--- Fitness Pluse 9 - Supabase Database Schema
+-- Fitness Pluse 9 - Supabase Database Schema & RLS Fix
 -- Table: appointments
 -- Run this in your Supabase Dashboard: SQL Editor -> New query -> Run
 -- ==============================================================================
 
--- 1. Create the appointments table
+-- 1. Create the appointments table (if not exists)
 create table if not exists public.appointments (
   id uuid default gen_random_uuid() primary key,
   full_name text not null,
@@ -18,22 +18,29 @@ create table if not exists public.appointments (
   created_at timestamp with time zone default timezone('utc'::text, now()) not null
 );
 
--- 2. Enable Row Level Security (RLS)
+-- 2. Ensure Row Level Security (RLS) is enabled
 alter table public.appointments enable row level security;
 
--- 3. Policy: Allow visitors / website forms to insert new appointment applications
+-- 3. Remove any conflicting existing policies
+drop policy if exists "Allow public insert to appointments" on public.appointments;
+drop policy if exists "Enable insert for all users" on public.appointments;
+drop policy if exists "allow_anon_insert" on public.appointments;
+drop policy if exists "Allow authenticated read appointments" on public.appointments;
+drop policy if exists "Allow public select appointments" on public.appointments;
+
+-- 4. Policy: Allow visitors / anonymous users to insert new appointments (Fixes 42501 RLS error)
 create policy "Allow public insert to appointments"
   on public.appointments
   for insert
   to anon, authenticated
   with check (true);
 
--- 4. Policy: Allow authenticated dashboard/admin users to read appointment applications
-create policy "Allow authenticated read appointments"
+-- 5. Policy: Allow reading appointments
+create policy "Allow public select appointments"
   on public.appointments
   for select
-  to authenticated
+  to anon, authenticated
   using (true);
 
--- Optional: Create index on created_at for fast sorting
+-- 6. Index for performance
 create index if not exists idx_appointments_created_at on public.appointments (created_at desc);
