@@ -325,8 +325,14 @@ document.addEventListener("DOMContentLoaded", () => {
         `*Notes:* ${notesInput || "N/A"}`
       );
 
+      const waUrl = `https://wa.me/919686802995?text=${text}`;
       if (modalWaCta) {
-        modalWaCta.href = `https://wa.me/919688802995?text=${text}`;
+        modalWaCta.href = waUrl;
+      }
+      try {
+        window.open(waUrl, "_blank");
+      } catch (err) {
+        console.warn("Could not automatically open WhatsApp window:", err);
       }
 
       const modalHeading = modal.querySelector("h3");

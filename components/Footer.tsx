@@ -54,9 +54,9 @@ export default function Footer() {
             <h5>Contact</h5>
             <ul className="footer-links">
               <li className="footer-contact-item">
-                <a href="https://wa.me/919688802995" target="_blank" rel="noopener noreferrer">
+                <a href="https://wa.me/919686802995" target="_blank" rel="noopener noreferrer">
                   <span className="footer-contact-icon">💬</span>
-                  <span>+91 96888 02995</span>
+                  <span>+91 96868 02995</span>
                 </a>
               </li>
               <li className="footer-contact-item">

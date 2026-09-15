@@ -5,7 +5,7 @@ import { supabase } from "@/lib/supabase";
 
 export default function ApplicationSection() {
   const [showModal, setShowModal] = useState(false);
-  const [waLink, setWaLink] = useState("https://wa.me/919688802995");
+  const [waLink, setWaLink] = useState("https://wa.me/919686802995");
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [saveSuccess, setSaveSuccess] = useState(false);
   const [dbError, setDbError] = useState<string | null>(null);
@@ -79,8 +79,17 @@ export default function ApplicationSection() {
       `*Notes:* ${notesInput || "N/A"}`
     );
 
-    setWaLink(`https://wa.me/919688802995?text=${text}`);
+    const targetWaUrl = `https://wa.me/919686802995?text=${text}`;
+    setWaLink(targetWaUrl);
     setShowModal(true);
+
+    if (typeof window !== "undefined") {
+      try {
+        window.open(targetWaUrl, "_blank");
+      } catch (err) {
+        console.warn("Could not automatically open WhatsApp window:", err);
+      }
+    }
   };
 
   const closeModal = () => setShowModal(false);
@@ -106,7 +115,7 @@ export default function ApplicationSection() {
                 </div>
                 <div className="form-group">
                   <label htmlFor="app-phone">WhatsApp / Phone Number *</label>
-                  <input type="tel" id="app-phone" placeholder="+91 96888 02995" required />
+                  <input type="tel" id="app-phone" placeholder="+91 96868 02995" required />
                 </div>
               </div>
 
@@ -183,7 +192,7 @@ export default function ApplicationSection() {
             {/* Quick Contact Info Strip */}
             <div className="contact-quick-strip">
               <a
-                href="https://wa.me/919688802995"
+                href="https://wa.me/919686802995"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="contact-quick-card"
@@ -191,7 +200,7 @@ export default function ApplicationSection() {
                 <div className="icon-box">💬</div>
                 <div>
                   <div className="meta-label">Call / WhatsApp</div>
-                  <div className="meta-val">+91 96888 02995</div>
+                  <div className="meta-val">+91 96868 02995</div>
                 </div>
               </a>
 
